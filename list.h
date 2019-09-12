@@ -28,7 +28,10 @@ class List {
         virtual string name() = 0;
 
         ~List() {
-            // TODO
+            head= NULL;
+            delete head;
+            tail=NULL;
+            delete tail;
         }
 };
 

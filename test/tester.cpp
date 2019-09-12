@@ -72,7 +72,7 @@ void Tester::testList(Collection collection) {
     list->push_back(elements[7]);
     list->sort();
 
-    ASSERT(isSorted(list), "The " + list->name() + " sort is not working");
+    ASSERT(isSorted(list), "The " + list->name() + " sort is not working" + to_string((*list)[0])+ " "+ to_string((*list)[1])+ " "+ to_string((*list)[2])+ " "+ to_string((*list)[3])+ " "+ to_string((*list)[4])+ " "+ to_string((*list)[5])+ " " + to_string(elements[4])+ " "+ to_string(elements[3])+ " "+ to_string(elements[2])+ " "+ to_string(elements[1])+ " "+ to_string(elements[6])+ " "+ to_string(elements[7])+ " ");
 
     list->clear();
     ASSERT(list->size() == 0, "The " + list->name() + " size or clear is not working");
@@ -143,7 +143,7 @@ void Tester::testLinked(LinkedList<T>* list) {
 
     auto it = list->begin();
     ++it;
-    ASSERT(*it == elements[1], "The " + list->name() + " iterator is not working");
+    ASSERT(*it == elements[1], "The " + list->name() + " iterator is not working " + to_string(*it)+" " + to_string(elements[1]));
     ++it;
     ++it;
     --it;
@@ -165,7 +165,7 @@ void Tester::testCircularLinked(CircularLinkedList<T>* list) {
     list1->push_back(elements[4]);
 
     list->merge(*list1);
-    ASSERT(list->size() == 5, "The " + list->name() + " merge is not working");
+    ASSERT(list->size() == 5, "The " + list->name() + " merge is not working " + to_string(list->size()));
 
     auto it = list->begin();
     ++it;
