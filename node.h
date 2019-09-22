@@ -8,6 +8,7 @@ struct Node {
     Node<T>* prev;
 
     void killSelf() {
+        //Si no setteas a null en los push, va a fallar
         if(next != NULL)
             next->killSelf();
         delete this;

@@ -28,6 +28,8 @@ class List {
         virtual string name() = 0;
 
         ~List() {
+            // Falta bastante
+            // Así no funciona el destructor
             head= NULL;
             delete head;
             tail=NULL;

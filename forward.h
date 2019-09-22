@@ -28,9 +28,11 @@ class ForwardList : public List<T> {
         void push_front(T value) {
             Node<T>* node = new Node<T>;
             node->data = value;
+            // Falta settear los punteros como null para el next por ejemplo
             if(this->nodes == 0){
                 this->head = node;
                 this->tail = this->head;
+                // Puedes sacarlo para evitar repetir código
                 this->nodes++;
             } else{
                 node->next = this->head;
@@ -56,6 +58,7 @@ class ForwardList : public List<T> {
         }
 
         void pop_front() {
+            // No es necesario en el pop
             if (this->nodes == 0){
                 throw "No elements";
             }else{
@@ -83,6 +86,7 @@ class ForwardList : public List<T> {
                     this->tail= nullptr;
                     this->nodes--;
                 }else{
+                    // Esto está dando segmentation fault
                     Node<T> *oldtail = this->tail;
                     Node<T> *nuevotail = this->tail->prev;
                     for (int i = 1; i < this->nodes-1 ; i++) {
@@ -97,6 +101,7 @@ class ForwardList : public List<T> {
         }
 
         T operator[](int index) {
+            // Y caso negativo?
             if(index>=this->nodes){
                 throw "Exceso de nudos";
             }else {
@@ -124,7 +129,7 @@ class ForwardList : public List<T> {
         void clear() {
             this->head->killSelf();
             this->nodes = 0;
-
+            // Settear head y tail como null?
             // TODO
         }
 
@@ -155,6 +160,7 @@ class ForwardList : public List<T> {
         }
     
         void reverse() {
+            // Puede mejorarse
             int size = this->nodes;
             int *array= new int [size];
             Node<T>*it = this->head;
